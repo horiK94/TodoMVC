@@ -1,3 +1,15 @@
+#content {
+    text-align: center;
+    background-color: #e0e0e0;
+    min-height: 100vh;
+    height: auto;
+}
+
+#title {
+    font-weight: lighter;
+    color: #c79f9f;
+}
+
 #todo-list {
     margin: auto;
     color: red;
@@ -6,7 +18,20 @@
 #title {
     /* font-family:  */
 }
+.text {
+    font-size: 20px;
+}
 
-body #todo-list #input-screen #todo-input {
-    height: 50px;
+body #content #input-screen form input {
+    height: 60px;
+    width: 540px;
+    font-size: 22px;
+    font-weight: lighter;
+}
+
+#todo-input {
+    background-image: url('../src/underArrow.jpg');
+    width: 55px;
+    height: 55px;
+    padding-left: 55px;
 }
