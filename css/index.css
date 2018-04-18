@@ -5,6 +5,10 @@
     height: auto;
 }
 
+#input-screen form{
+    display: inline-block;
+}
+
 #title {
     font-weight: lighter;
     color: #c79f9f;
@@ -15,14 +19,11 @@
     color: red;
 }
 
-#title {
-    /* font-family:  */
-}
 .text {
     font-size: 20px;
 }
 
-body #content #input-screen form input {
+body #content #input-screen form #todo-input {
     height: 60px;
     width: 540px;
     font-size: 22px;
