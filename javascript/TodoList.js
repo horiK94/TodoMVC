@@ -15,7 +15,7 @@ todo_input.onchange = () => {
 }
 
 todo_list.onchange = () => {
-    RefreshCheckboxData()
+    refreshCheckboxData()
 }
 
 all_check.onchange = () => {
@@ -27,7 +27,20 @@ all_check.onchange = () => {
     }
 }
 
-function RefreshCheckboxData(){
+const onClickDeleteButton = (element) => {
+    const value = element.value
+    // removeTodo(value)
+}
+
+function removeTodo(value){
+    for(let i = 0; i < todo_delete_button.length; i++){
+        if(todo_delete_button.val() === value){
+            console.log(value)
+        }
+    }
+}
+
+function refreshCheckboxData(){
     for(let i = 0; i < todo_checkbox.length; i++){
         todos[i].isDone = todo_checkbox[i].checked
         if(todos[i].isDone){
@@ -47,7 +60,7 @@ function setAllCheckbox(set){
         todo_checkbox[i].checked = set
         todos[i].isDone = set
     }
-    RefreshCheckboxData()
+    refreshCheckboxData()
 }
 
 function isAllChecked() {
@@ -68,8 +81,9 @@ function showTodo(){
         '   <input type="checkbox" name="todo" class="todo-done element' + i + '>' +
         '   <span class="is-done"></span>' +
         '   <span class="text">' + todos[i].text + '</span>' +
-        '   <button class="todo-delete">×</button>' +
+        '   <button class="todo-delete" value="' + i + '">×</button>' +
         '</div>')
+        todo_delete_button[i].onclick = onClickDeleteButton(todo_delete_button[i])
     }
 }
 
