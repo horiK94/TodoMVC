@@ -2,6 +2,8 @@
 const todo_input = document.getElementById('todo-input')
 const all_check = document.getElementById('all')
 const todo_checkbox = document.getElementsByClassName('todo-done')
+const todo_text = document.getElementsByClassName('text')
+const todo_delete_button = document.getElementsByClassName('todo-delete')
 const todo_list = document.getElementById('todo-list')
 let todos = []
 
@@ -13,21 +15,26 @@ todo_input.onchange = () => {
 }
 
 todo_list.onchange = () => {
-    for(let i = 0; i < todo_checkbox.length; i++){
-        todos[i].isDone = todo_checkbox[i].checked
-    }
-    console.log(todos)
+    RefreshCheckboxData()
 }
 
 all_check.onchange = () => {
-    console.log(all_check.checked)
-    console.log(isAllChecked())
-    if(isAllChecked() && !all_check.checked){
+    const wasCheckedAllCheckbox = isAllChecked() && !all_check.checked
+    if(wasCheckedAllCheckbox){
         setAllCheckbox(false)
-        console.log('f')
     }else{
         setAllCheckbox(true)
-        console.log('t')
+    }
+}
+
+function RefreshCheckboxData(){
+    for(let i = 0; i < todo_checkbox.length; i++){
+        todos[i].isDone = todo_checkbox[i].checked
+        if(todos[i].isDone){
+            todo_text[i].classList.add('done')
+        }else{
+            todo_text[i].classList.remove('done')
+        }
     }
 }
 
@@ -40,6 +47,7 @@ function setAllCheckbox(set){
         todo_checkbox[i].checked = set
         todos[i].isDone = set
     }
+    RefreshCheckboxData()
 }
 
 function isAllChecked() {
@@ -60,7 +68,7 @@ function showTodo(){
         '   <input type="checkbox" name="todo" class="todo-done element' + i + '>' +
         '   <span class="is-done"></span>' +
         '   <span class="text">' + todos[i].text + '</span>' +
-        '   <span class="chancel">×</span>' +
+        '   <button class="todo-delete">×</button>' +
         '</div>')
     }
 }

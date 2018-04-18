@@ -16,11 +16,15 @@
 
 #todo-list {
     margin: auto;
-    color: red;
 }
 
 .text {
     font-size: 20px;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #b1b1b1;
 }
 
 body #content #input-screen form #todo-input {
