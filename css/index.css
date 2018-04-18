@@ -1,0 +1,12 @@
+#todo-list {
+    margin: auto;
+    color: red;
+}
+
+#title {
+    /* font-family:  */
+}
+
+body #todo-list #input-screen #todo-input {
+    height: 50px;
+}
