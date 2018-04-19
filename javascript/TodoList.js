@@ -27,17 +27,13 @@ all_check.onchange = () => {
     }
 }
 
-const onClickDeleteButton = (element) => {
-    const value = element.value
-    // removeTodo(value)
-}
-
 function removeTodo(value){
-    for(let i = 0; i < todo_delete_button.length; i++){
-        if(todo_delete_button.val() === value){
-            console.log(value)
+    for(let i = 0; i < todos.length; i++){
+        if(i === +value){
+            todos.splice(i, 1)
         }
     }
+    showTodo()
 }
 
 function refreshCheckboxData(){
@@ -83,7 +79,9 @@ function showTodo(){
         '   <span class="text">' + todos[i].text + '</span>' +
         '   <button class="todo-delete" value="' + i + '">×</button>' +
         '</div>')
-        todo_delete_button[i].onclick = onClickDeleteButton(todo_delete_button[i])
+        todo_delete_button[i].addEventListener('click', (e) => {
+            removeTodo(e.toElement.value)
+        })
     }
 }
 
