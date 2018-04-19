@@ -17,8 +17,20 @@
             </form>
         </div>
         <div id="todo-list">
+
+        </div>
+        <div id="footer">
+            <div id="left-item">
+                0 items left
+            </div>
+            <form action="post" onsubmit="return false" id="todo-type">
+                <input type="radio" name="showType" value="All" checked>All
+                <input type="radio" name="showType" value="Active">Active
+                <input type="radio" name="showType" value="Completed">Completed
+            </form>
         </div>
     </div>
+
 
     <script type="text/javascript" src="./javascript/TodoList.js"></script>
 </body>
